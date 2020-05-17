@@ -1,0 +1,66 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/sideMenu.ejs'); %>
+
+
+<style>
+    .scrollable {
+       height: 1000px; /* or any value */
+        overflow-y: auto;
+    }
+    #profile-image{
+    border: 1px solid black;
+    margin-left: 11030;
+    margin: 20px 20px;
+    }
+    #actions-container{
+    margin-left: 30%;
+    border: 1px solid black;
+    background-color:white;
+    float: left;
+  }
+    .report-image{
+        height: 150px;
+        width: 150px;
+    }
+    .report-list{
+       border: 1px solid black;
+       background-color: #56CC9D;
+       margin-left: 30px;
+       float: left;
+    }
+  
+</style>
+<body>
+<div class="scrollable" id="data">
+    <h4 class="title" id="title"> More Details of <%=doctor.name%></h4><br>
+
+<!-- For details about patient -->
+<section class="actions mt-4">
+    <div class="container">
+        <div class="row">
+          <div id="actions-container" class="card col-md-5">
+          <ul class="list-group list-group-flush">
+            <div id="profile-image" class="col-md-5"> 
+              <img src="<%=doctor.imageUrl%>" class="card-img"></img>
+             </div> 
+                  <li class="list-group-item"><b>Name :</b> <%=(doctor.salutation)+" "+ (doctor.name)%></li>
+                  <li class="list-group-item"><b>Id :</b> <%=doctor.id%> </li>
+                  <li class="list-group-item"><b>Email :</b> <%=doctor.email%></li>
+                  <li class="list-group-item"><b>Phone Number :</b> <%=doctor.phonenumber%> </li>
+                  <li class="list-group-item"><b>Gender :</b> <%=doctor.gender%> </li>
+                  <li class="list-group-item"><b>Speciality</b> <%=doctor.speciality%> </li>
+                  <li class="list-group-item"><b>Qualification :</b> <%=doctor.qualification%> </li>
+                  <li class="list-group-item"><b>Experience :</b> <%=doctor.experience%> </li>
+                  <li class="list-group-item"><b>Description :</b> <%=doctor.description%> </li>
+                  <li class="list-group-item"><b>Joined :</b ><%=doctor.date%> </li>
+                  <li class="list-group-item">Time : <%= detail.time %></li>
+                  <li class="list-group-item">Days : <%= detail.days %></li>
+                  <li class="list-group-item">Shift: <%= detail.shift %></li>
+                </ul> 
+                
+            </div>
+            </div>
+        </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>     
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../public/images/css/style.css">
+</head>
+<style>
+  .aa{
+    padding-top: 0px 10px;
+    margin-left: 75px;
+  }
+  a{
+    color: rgb(233, 232, 227);
+  }
+  #icon{
+    padding: 2px;
+    position: relative;
+    color: #56CC9D;
+  }
+  .profileimage{
+    width: 300px;
+    height: 125px;
+    margin-top: 20px;
+    width:50%;
+    margin-left: 50px;
+  }
+  .profilename{
+    margin-left: 45px;
+  }
+  
+</style>
+<div id ="sidebar">
+    <ul class="navbar-nav">
+      <div class="row">
+        <div class="col">
+          <li class="user"></li>
+          <img src="<%=user.imageUrl || '/public/images/profile.png'%>" class="profileimage card-img rounded-circle "></img><br>
+          <span class="profilename"><a href="/patientprofile" class="text-muted ml-2"><i class="fa fa-user"></i> <%=user.name%></a></span>
+          </li>
+        </div>
+      </div>
+      <br>  
+        <li id="side"><a href="/seereport" class="nav-link"><i id="icon" class="far fa-address-card"></i> See Reports</a></li></i>
+        <li id="side"><a href="/uploadreport" class="nav-link"><i id="icon" class="fas fa-file-upload"></i> Upload Reports</a></li>
+        <li id="side"><a href="/patient/viewdoctors" class="nav-link"><i id="icon" class="fas fa-user-md"></i> View Doctors</a></li>
+        <li id="side"><a href="/knowyourdisease" class="nav-link"><i id="icon" class="fas fa-heartbeat"></i> Know your disease</a></li>
+        <li id="side"><a href="/sendfeedbacks" class="nav-link"><i id="icon" class="fas fa-comments"></i> Send Feedbacks</a></li>
+        <li id="side"><a href="/chat" class="nav-link"> <i id="icon" class="fas fa-paper-plane"></i> Chat Online</a></li>
+    </ul>
+    <br>
+    <a href="/patient/logout" class="aa btn btn-success">Logout</a>
+</div>

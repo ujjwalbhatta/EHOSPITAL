@@ -1,0 +1,74 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/sideMenu.ejs'); %>
+
+<style>
+  #profile-image{
+    border: 1px solid black;
+    margin-left: 110px;
+    margin: 20px 20px;
+  }
+  #actions-container{
+    border: 1px solid black;
+    background-color:white;
+    float: left;
+  }
+  
+  </style>
+    
+
+<div class="scrollable" id ="data">
+    <h4 class="title">Profile</h4>
+    <br>
+
+<%- include('./partials/messages.ejs'); %>
+
+<!--PROFILE-->
+
+<section class="actions mt-4">
+  <div class="container">
+      <div class="row">
+        <div id="actions-container" class="card col-md-5">
+        <ul class="list-group list-group-flush">
+          <div id="profile-image" class="col-md-5"> 
+            <img src="<%=user.imageUrl%>" class="card-img"></img>
+            <a href="" class="text-muted ml-2" data-toggle="modal" data-target="#changePhotoModal"><i class="fa fa-camera"></i> Change Photo</a>
+          </div>
+                <li class="list-group-item"><b>Name :</b> <%=user.name%></li>
+                <li class="list-group-item"><b>Id :</b> <%=user.id%> </li>
+                <li class="list-group-item"><b>Token Number :</b> <%=user.tokennumber%> </li>
+                <li class="list-group-item"><b>Email :</b> <%=user.email%></li>
+                <li class="list-group-item"><b>Gender :</b> <%=user.gender%> </li>
+                <li class="list-group-item"><b>Age :</b> <%=user.age%> </li>
+                <li class="list-group-item"><b>Address :</b> <%=user.address%> </li>
+                <li class="list-group-item"><b>Joined :</b><%=user.date%> </li>
+                <br>
+                <li><a href="" class="btn btn-dark mb-2" data-toggle="modal" data-target="#updateProfileModal">Update Profile</a></li>
+              </ul> 
+          </div>
+          </div>
+      </div>
+</section>
+</div>
+
+<!--Change Photo Modal-->
+<div class="modal fade" id="changePhotoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="passwordModalLabel">
+          Change Photo
+        </h5>
+        <button class="close" data-dismiss="modal" ><span>&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="change_avatar" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="photo" class="form-control-label">Change Photo</label>
+            <input type="file"  name="image" class="form-control">
+          </div>
+           <input type="submit" class="btn btn-sm btn-primary m-2" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+  
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/sideMenu.ejs'); %>
+<style>
+    .card{
+        font-size: medium;
+        /* background: rgb(67, 65, 75); */
+        border :1px solid rgb(67, 65, 75); 
+    }
+    .col-sm-8{
+        margin-left: 25%;
+    }
+</style>
+      <div id ="data">
+        <h4 class="title">Upload your reports</h4>
+        <br>
+        <br>
+        
+        <form action="/upload_reports" method="POST" enctype="multipart/form-data">
+            <div class="col-sm-8">
+                <div class="card">
+                  <div class="card-body">
+                      <div>
+                          <label class="card-title" for="title">Report Description</label>
+                          <input type="text" name="title" id="title">
+                      </div>
+                      <br>
+                      <div>
+                          <label for="image">Image</label>
+                          <input type="file" name="image" id="image">
+                      </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                  </div>
+                  
+                </div>
+              </div>
+        </form>
+        </div>

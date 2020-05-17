@@ -1,0 +1,60 @@
+<%- include('./partials/header.ejs'); %>
+<%- include('./partials/sideMenu.ejs'); %>
+<style>
+#datatable {
+    border: 2px solid whitesmoke;
+    border-style: double;
+    margin-left: 100px;
+    max-width: 83%;
+    width: 100%;
+    height:600px;
+    display: inline-block;
+    text-align: center;
+  }
+  .scrollable {
+       height: 600px; 
+        overflow-y: auto;
+ }
+ .form-inline{
+   margin-left: 65%;
+ }
+</style>
+
+<div class="scrollable" id ="data">
+    <h4 class="title">Doctors List</h4>
+    <br>
+    <p class="search">
+      <form action="" method="GET" class="form-inline" >
+        <div class="form-group">
+          <input type="text" name="search" placeholder="Doctor's name" class="form-control">
+          <input type="submit" value="Search" class="btn btn-dark">
+        </div>
+        <%- include('./partials/messages.ejs'); %>
+      </form>
+    </p>
+
+    <table id="datatable" class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>  
+      <th scope="col">Name</th>
+      <th scope="col">Speciality</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Years Experience</th>
+      <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% doctors.forEach(Doctor => { %>
+    <tr>
+      <th scope="row">#</th>
+      <td><%= Doctor.name %></td>
+      <td><%= Doctor.speciality %></td>
+      <td><%= Doctor.qualification %></td>
+      <td><%= Doctor.experience %></td>
+      <td><a href="/patient/<%=Doctor.id%>" class="aa btn btn-success">View More Details</a></td>
+    </tr>
+    </tbody>
+    <% }) %>
+    </table>
+  </div>

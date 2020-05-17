@@ -1,0 +1,61 @@
+<%- include('./partials/headerDr.ejs'); %>
+<%- include('./partials/sideMenuDr.ejs'); %>
+<style>
+.pat_list{
+    text-align: center;
+}
+#datatable {
+    border: 2px solid whitesmoke;
+    border-style: double;
+    margin-left: 100px;
+    max-width: 83%;
+    width: 100%;
+    height:600px;
+    display: inline-block;
+    text-align: center;
+  }
+  .scrollable {
+       height: 600px; 
+        overflow-y: auto;
+ }
+  .form-inline{
+    margin-left: 65%;
+  }
+</style>
+
+<div class="scrollable" id ="data">
+    <h4 class="title">Patients List</h4>
+    <br>
+    <p class="search">
+      <form action="/doctor/viewpatients" method="GET" class="form-inline" >
+        <div class="form-group">
+          <input type="text" name="search" placeholder="Search Patients..." class="form-control">
+          <input type="submit" value="Search" class="btn btn-dark">
+        </div>
+        <%- include('./partials/messages.ejs'); %>
+      </form>
+    </p> 
+    <br>  
+    <table id="datatable" class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Token Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Registration Date</th>
+      <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% patients.forEach(Patient => { %>
+    <tr>
+      <th scope="row"><%= Patient.tokennumber %></th>
+      <td><%= Patient.name %></td>
+      <td><%= Patient.email %></td>
+      <td><%= Patient.date %></td>
+      <td><a href="/doctor/<%=Patient.id%>" class="aa btn btn-success">View More Details</a></td>
+    </tr>
+    </tbody>
+    <% }) %>
+    </table>
+  </div>

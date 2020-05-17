@@ -1,0 +1,68 @@
+<%- include('./partials/headerDr.ejs'); %>
+<%- include('./partials/sideMenuDr.ejs'); %>
+
+<style>
+.actions-container{
+  margin-top: 40px;
+  margin-left: 200px;
+  float: left;
+}
+</style>
+
+<div class="scrollable" id ="data">
+    <h4 class="title">Profile</h4>
+    <br>
+
+<%- include('./partials/messages.ejs'); %>
+
+<!--PROFILE-->
+<section class="actions mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="actions-container col-md-8">
+                <ul class="list-group list-group-flush">
+                  <div class="profile-image col-md-3"> 
+                    <img src="<%=user.imageUrl%>" class="card-img"></img>
+                    <a href="" class="text-muted ml-2" data-toggle="modal" data-target="#changePhotoModal"><i class="fa fa-camera"></i> Change Photo</a>
+                  </div>
+                  <li class="list-group-item">Name : <%=user.name%></li>
+                  <li class="list-group-item">Id: <%=user.id%> </li>
+                  <li class="list-group-item">Email: <%=user.email%></li>
+                  <li class="list-group-item">Gender: <%=user.gender%> </li>
+                  <li class="list-group-item">Age: <%=user.age%> </li>
+                  <li class="list-group-item">Joined:<%=user.date%> </li>
+                </ul>
+                <div class="col-md-3">
+                  <a href="" class="btn btn-primary btn-block" data-toggle="modal" data-target="#updateProfileModal">
+                    <i class="fa fa-refresh"></i> Update Profile
+                  </a>
+                </div> 
+            </div>
+            
+        </div>
+    </div>
+</section>
+</div>
+
+<!--Change Photo Modal-->
+<div class="modal fade" id="changePhotoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="passwordModalLabel">
+          Change Photo
+        </h5>
+        <button class="close" data-dismiss="modal" ><span>&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="change_avatar_doctor" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="photo" class="form-control-label">Change Photo</label>
+            <input type="file"  name="image" class="form-control">
+          </div>
+           <input type="submit" class="btn btn-sm btn-primary m-2" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
